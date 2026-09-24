@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bizora - Customer Order Form</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#070b18;
+    color:white;
+    min-height:100vh;
+    padding:25px 15px;
+}
+
+.container{
+    max-width:650px;
+    margin:auto;
+    background:#11182b;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 0 25px rgba(0,0,0,0.5);
+}
+
+.logo{
+    text-align:center;
+    font-size:32px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#aeb7ca;
+    margin-bottom:25px;
+}
+
+label{
+    display:block;
+    margin-top:18px;
+    margin-bottom:8px;
+    font-weight:bold;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:13px;
+    border:none;
+    outline:none;
+    border-radius:10px;
+    background:#202a43;
+    color:white;
+    font-size:15px;
+}
+
+input::placeholder,
+textarea::placeholder{
+    color:#8f99ae;
+}
+
+textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+.order-btn{
+    width:100%;
+    margin-top:25px;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:white;
+    color:#07101f;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.order-btn:hover{
+    opacity:0.9;
+}
+
+.success{
+    display:none;
+    margin-top:20px;
+    padding:20px;
+    border-radius:12px;
+    background:#18263b;
+    text-align:center;
+    line-height:1.7;
+    font-size:16px;
+}
+
+.success-title{
+    font-size:22px;
+    font-weight:bold;
+}
+
+.note{
+    margin-top:18px;
+    text-align:center;
+    color:#9da7bb;
+    font-size:13px;
+    line-height:1.5;
+}
+
+#googleForm{
+    display:none;
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <div class="logo">
+        Bizora
+    </div>
+
+    <div class="subtitle">
+        Customer Order Form
+    </div>
+
+
+    <!-- CUSTOMER ORDER FORM -->
+
+    <form id="orderForm">
+
+
+        <label>
+            Customer Name
+        </label>
+
+        <input
+            type="text"
+            id="name"
+            placeholder="Enter your name"
+            required
+        >
+
+
+        <label>
+            Email Address
+        </label>
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+        >
+
+
+        <label>
+            WhatsApp / Contact Number
+        </label>
+
+        <input
+            type="tel"
+            id="phone"
+            placeholder="Enter your contact number"
+            required
+        >
+
+
+        <label>
+            Select Service
+        </label>
+
+        <select
+            id="service"
+            required
+        >
+
+            <option value="">
+                -- Select a service --
+            </option>
+
+            <option>
+                PowerPoint Presentation
+            </option>
+
+            <option>
+                Assignment / Project Work
+            </option>
+
+            <option>
+                Cover Page Design
+            </option>
+
+            <option>
+                Business Card Design
+            </option>
+
+            <option>
+                Invitation Card Design
+            </option>
+
+            <option>
+                Poster Design
+            </option>
+
+            <option>
+                Certificate Design
+            </option>
+
+            <option>
+                Resume / CV Design
+            </option>
+
+            <option>
+                Digital Document Design
+            </option>
+
+            <option>
+                Other
+            </option>
+
+        </select>
+
+
+        <label>
+            Required Date
+        </label>
+
+        <input
+            type="date"
+            id="date"
+            required
+        >
+
+
+        <label>
+            Your Requirements
+        </label>
+
+        <textarea
+            id="requirements"
+            placeholder="Tell us what you want...&#10;Example: PPT topic, number of pages/slides, design preference, etc."
+            required
+        ></textarea>
+
+
+        <label>
+            Additional Details
+        </label>
+
+        <textarea
+            id="details"
+            placeholder="Any extra information..."
+        ></textarea>
+
+
+        <button
+            type="submit"
+            class="order-btn"
+        >
+            Submit Order
+        </button>
+
+    </form>
+
+
+    <!-- SUCCESS MESSAGE -->
+
+    <div
+        class="success"
+        id="successMessage"
+    >
+
+        <div class="success-title">
+            ✅ Order Submitted Successfully!
+        </div>
+
+        <br>
+
+        Thank you for choosing Bizora.
+
+        <br>
+
+        Your order details have been submitted.
+
+        <br>
+
+        We will contact you regarding your order.
+
+    </div>
+
+
+    <div class="note">
+
+        Bizora • Digital Design & Student Services
+
+        <br>
+
+        Your order details are securely submitted through Google Forms.
+
+    </div>
+
+</div>
+
+
+<!-- ==================================================
+     HIDDEN GOOGLE FORM CONNECTION
+     ================================================== -->
+
+
+<iframe
+    name="hiddenFrame"
+    id="hiddenFrame"
+    style="display:none;"
+></iframe>
+
+
+<form
+    id="googleForm"
+
+    action="https://docs.google.com/forms/d/e/1FAIpQLSf_iTZrFXePzs83F3dE5dxCaAdOuG_g7j5ZcTHCZQcYjrC6Mw/formResponse"
+
+    method="POST"
+
+    target="hiddenFrame"
+>
+
+
+    <!-- CUSTOMER NAME -->
+
+    <input
+        type="hidden"
+        name="entry.1389552079"
+        id="gName"
+    >
+
+
+    <!-- SERVICE -->
+
+    <input
+        type="hidden"
+        name="entry.365573385"
+        id="gService"
+    >
+
+
+    <!-- REQUIRED DATE -->
+
+    <input
+        type="hidden"
+        name="entry.179952789"
+        id="gDate"
+    >
+
+
+    <!-- REQUIREMENTS -->
+
+    <input
+        type="hidden"
+        name="entry.937543852"
+        id="gRequirements"
+    >
+
+
+    <!-- ADDITIONAL DETAILS -->
+
+    <input
+        type="hidden"
+        name="entry.1298911294"
+        id="gDetails"
+    >
+
+</form>
+
+
+<script>
+
+
+document
+.getElementById("orderForm")
+.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+
+    /*
+    ============================================
+    GET CUSTOMER INFORMATION
+    ============================================
+    */
+
+
+    let name =
+        document.getElementById("name").value;
+
+
+    let email =
+        document.getElementById("email").value;
+
+
+    let phone =
+        document.getElementById("phone").value;
+
+
+    let service =
+        document.getElementById("service").value;
+
+
+    let date =
+        document.getElementById("date").value;
+
+
+    let requirements =
+        document.getElementById("requirements").value;
+
+
+    let details =
+        document.getElementById("details").value;
+
+
+    /*
+    ============================================
+    SEND DATA TO GOOGLE FORM
+    ============================================
+    */
+
+
+    document.getElementById("gName").value =
+        name;
+
+
+    document.getElementById("gService").value =
+        service;
+
+
+    document.getElementById("gDate").value =
+        date;
+
+
+    document.getElementById("gRequirements").value =
+        requirements;
+
+
+    document.getElementById("gDetails").value =
+        details;
+
+
+    /*
+    ============================================
+    SUBMIT GOOGLE FORM
+    ============================================
+    */
+
+
+    document
+    .getElementById("googleForm")
+    .submit();
+
+
+    /*
+    ============================================
+    HIDE CUSTOMER FORM
+    ============================================
+    */
+
+
+    document
+    .getElementById("orderForm")
+    .style.display = "none";
+
+
+    /*
+    ============================================
+    SHOW SUCCESS MESSAGE
+    ============================================
+    */
+
+
+    document
+    .getElementById("successMessage")
+    .style.display = "block";
+
+
+    /*
+    ============================================
+    SCROLL TO SUCCESS MESSAGE
+    ============================================
+    */
+
+
+    document
+    .getElementById("successMessage")
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+});
+
+</script>
+
+</body>
+          </html>
